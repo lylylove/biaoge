@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        outline: none;
+    }
+    section{
+        width:700px;
+        height:auto;
+        border: 1px solid #cccccc;
+        border-radius: 10px;
+        margin: 0 auto;
+        margin-top: 50px;
+        padding: 20px 20px;
+        background: #f3f3f3;
+    }
+    .biaoti{
+        width: auto;
+        height: auto;
+        font-size: 40px;
+        text-align: center;
+    }
+    table{
+        width:700px;
+        height:auto;
+    }
+    th{
+        padding: 20px 12px;
+        font-size: 20px;
+    }
+    td{
+        padding: 20px 12px;
+        text-align: center;
+        font-size: 15px;
+    }
+    .hang:nth-child(2n) {
+        background: #cacac9;
+        border: 0;
+    }
+    .hang:nth-child(2n-1) {
+        background: #fff;
+        border: 0;
+    }
+    button{
+        border: 0;
+        padding: 15px 25px;
+        float: right;
+        margin-right: 12px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        background: #6ac;
+        font-size: 15px;
+    }
+</style>
+<body>
+    <section>
+    <div class="biaoti">客户详情</div>
+        <table>
+            <tr class="hang">
+                <th>姓名</th>
+                <th>性别</th>
+                <th>籍贯</th>
+                <th>班级</th>
+                <th>电话</th>
+                <th>操作</th>
+            </tr>
+            <tr class="hang">
+                <td>老王</td>
+                <td>男</td>
+                <td>隔壁</td>
+                <td>1709</td>
+                <td>258258</td>
+                <td class="del">删除</td>
+            </tr>
+            <tr class="hang">
+                <td>老王</td>
+                <td>男</td>
+                <td>隔壁</td>
+                <td>1709</td>
+                <td>258258</td>
+                <td class="del">删除</td>
+            </tr>
+            <tr class="hang">
+                <td>老王</td>
+                <td>男</td>
+                <td>隔壁</td>
+                <td>1709</td>
+                <td>258258</td>
+                <td class="del">删除</td>
+            </tr>
+            <tr class="hang">
+                <td>老王</td>
+                <td>男</td>
+                <td>隔壁</td>
+                <td>1709</td>
+                <td>258258</td>
+                <td class="del">删除</td>
+            </tr>
+            <tr class="hang">
+                <td>老王</td>
+                <td>男</td>
+                <td>隔壁</td>
+                <td>1709</td>
+                <td>258258</td>
+                <td class="del">删除</td>
+            </tr>
+        </table>
+        <button>添加</button>
+        <div style="clear:both;"></div>
+    </section>
+</body>
+</html>
+<script>
+    window.onload = function(){
+        let table = document.querySelector('tbody');
+        let button = document.querySelector('button');
+        table.ondblclick = function(e){
+            let ee = e.target;
+            if(ee.nodeName == 'TD' && ee.className!= 'del'){
+                let oldv = ee.innerText;
+                ee.innerText = '';
+                let inputs = document.createElement('input');
+                inputs.setAttribute("autofocus", "autofocus");
+                ee.appendChild(inputs);
+                inputs.focus();
+                inputs.value = oldv;
+                inputs.onblur = function(){
+                    let newv = inputs.value;
+                    ee.removeChild(inputs);
+                    ee.innerText = newv;
+                }
+            }else if(ee.className == 'del'){
+                let trs = ee.parentNode;
+                table.removeChild(trs);
+            }
+        }
+        button.onclick = function(){
+            table.innerHTML =table.innerHTML +`
+                <tr>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>山西</td>
+                    <td>1709</td>
+                    <td>123</td>
+                    <td class="del">删除</td>
+                </tr>`;
+        }
+    }
+</script>
