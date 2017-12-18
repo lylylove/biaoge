@@ -1,0 +1,55 @@
+html,body{
+	background: #f3f3f3;
+}
+p {
+		font-size: 14px;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.tir {
+    margin: 0 auto;
+    width: 960px;
+    height: 9px;
+    margin-top: -14px;
+}
+.table {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+.table th {
+    padding: 10px 0;
+    border-bottom: 2px solid #bbb;
+    text-align: left;
+}
+
+.stress {
+    color: #00833c;
+}
+.table td {
+    padding: 10px 0;
+    vertical-align: top;
+}
+.table .action {
+    text-align: right;
+}
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 2px;
+    background: #00833c;
+    color: #fff;
+    font-size: 12px;
+}
