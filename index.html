@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+body{
+	font-size:30px;
+}
+.box{
+	width: 800px;
+	height: 80px;
+	background: pink;
+	margin: 0 auto;
+	line-height: 80px;
+	text-align: center;
+}
+span{
+	font-size: 35px;
+	color: red;
+	font-weight: 600;
+	padding: 3px;
+}
+</style>
+<body>
+	<div class="box">
+		还剩<span> </span>分
+			<span> </span>秒
+	</div>		
+</body>
+</html>
+<script>
+
+	sum(10)
+	function sum(num){
+		// 声明未来时间date
+		let date = new Date();
+		// 设置未来时间为10分钟以后
+		date.setMinutes(date.getMinutes() + num)
+		move()
+		// 开启时间函数
+		setInterval(move, 1000)	
+		function move(){
+			// 现在时间
+			let now = new Date();
+			// 现在时间毫秒减去之前时间毫秒/1000,换算为秒
+			let time = Math.floor((date.getTime() - now.getTime())/1000)
+			let span = document.querySelectorAll('span')
+			let arr = [];
+	
+		
+		//  秒差/60得到分,取整
+			let fen = Math.floor(time/60)
+			arr.push(fen)
+			console.log(fen)
+			// 对不够一分的数取余,取整为秒
+			time %= 60;
+			let miao = Math.floor(time)
+			arr.push(miao)
+			// 遍历页面span,给span依次添加数组里的fen,miao
+			span.forEach(function(ele,index){
+				ele.innerText = arr[index]
+			})	
+		}
+	}
+		
+</script>
